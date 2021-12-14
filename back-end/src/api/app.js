@@ -12,6 +12,7 @@ app.use(bodyParser.json());
 app.post('/login', rescue(controller.login));
 app.post('/register', validateUser, rescue(controller.createUser));
 
+app.get('/products', controller.getAllProducts);
 app.post('/product', validateProductFields, controller.createProduct);
 
 app.use((error, _req, res, _next) => {
