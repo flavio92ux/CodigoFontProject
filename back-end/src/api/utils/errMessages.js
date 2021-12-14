@@ -8,9 +8,19 @@ const invalidId = {
     message: 'Argument passed in must be a string of 12 bytes or a string of 24 hex characters',
 };
 
+const jwtMalformed = {
+    status: 400,
+    message: 'JWT Malformed',
+};
+
 const userAlreadyExist = {
     status: 409,
     message: 'User already exist',
+};
+
+const missingAuthToken = {
+    status: 401,
+    message: 'missing auth token',
 };
 
 const userDoesNotExist = {
@@ -35,4 +45,6 @@ module.exports = {
     userAlreadyExist,
     productDoesNotExist,
     invalidId,
+    missingAuthToken,
+    jwtMalformed,
 };

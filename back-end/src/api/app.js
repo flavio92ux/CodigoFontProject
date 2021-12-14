@@ -4,6 +4,7 @@ const rescue = require('express-rescue');
 
 const validateUser = require('./middlewares/validateUser');
 const validateProductFields = require('./middlewares/validateProductFields');
+const auth = require('./middlewares/auth');
 const controller = require('./controller');
 
 const app = express();
@@ -15,7 +16,7 @@ app.post('/register', validateUser, rescue(controller.createUser));
 app.get('/products', controller.getAllProducts);
 
 app.get('/product/:id', rescue(controller.getProductById));
-app.post('/product', validateProductFields, controller.createProduct);
+app.post('/product', auth, validateProductFields, controller.createProduct);
 
 app.use((error, _req, res, _next) => {
     res.status(error.status).json({ message: error.message });
