@@ -1,8 +1,9 @@
-const createUserService = require('../service/createUser');
+const loginService = require('../service/loginUser');
 
 module.exports = async (req, res) => {
     const { email, password } = req.body;
-    const token = await createUserService(email, password);
+
+    const token = await loginService(email, password);
 
     res.status(200).json({ token });
 };

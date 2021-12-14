@@ -8,6 +8,7 @@ const controller = require('./controller');
 const app = express();
 app.use(bodyParser.json());
 
+app.post('/login', rescue(controller.loginController));
 app.post('/register', validateUser, rescue(controller.createUserController));
 
 app.use((error, _req, res, _next) => {
