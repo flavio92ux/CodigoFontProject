@@ -1,5 +1,7 @@
+const md5 = require('md5');
 const createUser = require('../model/createUser');
 const getUserByEmail = require('../model/getUserByEmail');
+const { createToken } = require('../jwtToken/getAndSetJwtToken');
 
 const errMessage = {
     status: 409,
@@ -12,9 +14,12 @@ const checkUserIfExists = async (email) => {
     if (user) throw errMessage;
 };
 
-module.exports = async (email, password) => {
+module.exports = async (email, passwd) => {
+    const password = md5(passwd);
     await checkUserIfExists(email);
-    const id = await createUser(email, password);
+    await createUser(email, password);
 
-    return { id, email };
+    const token = createToken(email);
+
+    return { token };
 };
