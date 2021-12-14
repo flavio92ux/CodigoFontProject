@@ -17,7 +17,13 @@ const checkUserIfExists = async (email) => {
 module.exports = async (email, passwd) => {
     const password = md5(passwd);
     await checkUserIfExists(email);
-    await createUser(email, password);
+
+    try {
+        await createUser(email, password);
+    } catch (err) {
+        const objError = { status: err.status, message: err.message };
+        throw objError;
+    }    
 
     const token = createToken(email);
 
