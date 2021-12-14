@@ -13,6 +13,8 @@ app.post('/login', rescue(controller.login));
 app.post('/register', validateUser, rescue(controller.createUser));
 
 app.get('/products', controller.getAllProducts);
+
+app.get('/product/:id', rescue(controller.getProductById));
 app.post('/product', validateProductFields, controller.createProduct);
 
 app.use((error, _req, res, _next) => {

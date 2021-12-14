@@ -1,16 +1,7 @@
 const md5 = require('md5');
 const getUserByEmail = require('../model/getUserByEmail');
 const { createToken } = require('../jwtToken/getAndSetJwtToken');
-
-const invalidPassword = {
-    status: 400,
-    message: 'Password Incorrect',
-  };
-
-const userDoesNotExist = {
-    status: 400,
-    message: 'User does not exist',
-};
+const { userDoesNotExist, invalidPassword } = require('../utils/errMessages');
 
 const checkUser = async (email, passwd) => {
     const user = await getUserByEmail(email);

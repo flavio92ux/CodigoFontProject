@@ -2,17 +2,12 @@ const md5 = require('md5');
 const createUser = require('../model/createUser');
 const getUserByEmail = require('../model/getUserByEmail');
 const { createToken } = require('../jwtToken/getAndSetJwtToken');
-const requestError = require('../utils/requestError');
-
-const errMessage = {
-    status: 409,
-    message: 'User already exists',
-};
+const { userAlreadyExist, requestError } = require('../utils/errMessages');
 
 const checkUserIfExists = async (email) => {
     const user = await getUserByEmail(email);
 
-    if (user) throw errMessage;
+    if (user) throw userAlreadyExist;
 };
 
 module.exports = async (email, passwd) => {
