@@ -35,9 +35,9 @@ function LoginPage() {
       setInvalidLogin(false);
       localStorage.setItem('token', token);
       navigate('/products');
+    } else {
+      clearForm();
     }
-
-    clearForm();
   };
 
   return (

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Routes, Navigate } from 'react-router-dom';
 import LoginPage from './pages/LoginPage';
+import Products from './pages/Products';
 import RegisterPage from './pages/RegisterPage';
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
       <Route exact path="/" element={ <Navigate replace to="/login" /> } />
       <Route path="/login" element={ <LoginPage /> } />
       <Route path="/register" element={ <RegisterPage /> } />
+      <Route path="/products" element={ <Products /> } />
     </Routes>
   );
 }
