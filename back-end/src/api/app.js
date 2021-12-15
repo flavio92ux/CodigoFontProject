@@ -20,6 +20,8 @@ app.get('/products', controller.getAllProducts);
 
 app.post('/product', auth, validateProductFields, controller.createProduct);
 
+app.patch('/product/:id', auth, rescue(controller.updateStock));
+
 app.patch('/product/:id/image', upload.single('image'), auth, controller.updateImage);
 
 app.get('/image/:image', controller.getImage);

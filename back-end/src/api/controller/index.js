@@ -5,6 +5,7 @@ const getProductById = require('./getProductById');
 const login = require('./login');
 const updateImage = require('./updateImage');
 const getImage = require('./getImage');
+const updateStock = require('./updateStock');
 
 module.exports = {
     createUser,
@@ -14,4 +15,5 @@ module.exports = {
     login,
     updateImage,
     getImage,
+    updateStock,
 };
