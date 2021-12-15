@@ -21,11 +21,9 @@ app.get('/products', controller.getAllProducts);
 app.post('/product', auth, validateProductFields, controller.createProduct);
 
 app.patch('/product/:id', auth, rescue(controller.updateStock));
-
 app.patch('/product/:id/image', upload.single('image'), auth, controller.updateImage);
 
 app.get('/image/:image', controller.getImage);
-
 app.get('/product/:id', rescue(controller.getProductById));
 
 app.use((error, _req, res, _next) => {
