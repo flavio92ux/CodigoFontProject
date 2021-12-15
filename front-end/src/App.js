@@ -1,11 +1,13 @@
 import React from 'react';
-import { Button } from 'react-bootstrap';
+import { Route, Routes, Navigate } from 'react-router-dom';
+import LoginPage from './pages/LoginPage';
 
 function App() {
   return (
-    <div>
-      <Button>Ola mundo</Button>
-    </div>
+    <Routes>
+      <Route exact path="/" element={ <Navigate replace to="/login" /> } />
+      <Route path="/login" element={ <LoginPage /> } />
+    </Routes>
   );
 }
 
