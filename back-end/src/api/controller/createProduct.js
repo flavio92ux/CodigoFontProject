@@ -8,12 +8,12 @@ module.exports = async (req, res) => {
         stock,
         image } = req.body;
 
-    const productId = await createProductService({
+    const id = await createProductService({
         productName,
         price,
         amount,
         stock,
         image });
 
-    res.status(201).json({ productId });
+    res.status(201).json({ id });
 };

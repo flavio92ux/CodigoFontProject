@@ -1,5 +1,4 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const rescue = require('express-rescue');
 
 const validateUser = require('./middlewares/validateUser');
@@ -8,15 +7,24 @@ const auth = require('./middlewares/auth');
 const controller = require('./controller');
 
 const app = express();
-app.use(bodyParser.json());
 
-app.post('/login', rescue(controller.login));
-app.post('/register', validateUser, rescue(controller.createUser));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+const upload = require('./middlewares/multer');
+
+app.post('/login', validateUser, rescue(controller.login));
+app.post('/register', rescue(controller.createUser));
 
 app.get('/products', controller.getAllProducts);
 
-app.get('/product/:id', rescue(controller.getProductById));
 app.post('/product', auth, validateProductFields, controller.createProduct);
+
+app.patch('/product/:id/image', upload.single('image'), auth, controller.updateImage);
+
+app.get('/image/:image', controller.getImage);
+
+app.get('/product/:id', rescue(controller.getProductById));
 
 app.use((error, _req, res, _next) => {
     res.status(error.status).json({ message: error.message });
