@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import fetchLogin from '../services/fetchLogin';
 import inputsVerification from '../utils/InputsVerification';
 
@@ -9,14 +10,18 @@ function LoginPage() {
   const [password, setPassword] = useState('12345678');
   const [invalidLogin, setInvalidLogin] = useState(false);
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     setDisabled(!inputsVerification(email, password));
   }, [email, password]);
 
+  const emailInput = useRef(null);
+
   const clearForm = () => {
     setEmail('');
     setPassword('');
-    document.getElementById('email-form').setFocus();
+    emailInput.current.focus();
   };
 
   const handleSubmit = async (e) => {
@@ -26,9 +31,11 @@ function LoginPage() {
     const { token, message } = data;
 
     if (message) setInvalidLogin(true);
-    if (token) setInvalidLogin(false);
-
-    localStorage.setItem('token', token);
+    if (token) {
+      setInvalidLogin(false);
+      localStorage.setItem('token', token);
+      navigate('/products');
+    }
 
     clearForm();
   };
@@ -42,7 +49,7 @@ function LoginPage() {
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
         <Form.Control
-          id="email-form"
+          ref={ emailInput }
           type="email"
           placeholder="Enter email"
           value={ email }
