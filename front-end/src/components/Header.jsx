@@ -5,7 +5,7 @@ function Header() {
   return (
     <Navbar bg="light" expand="lg">
       <Container fluid>
-        <Navbar.Brand href="#">Products</Navbar.Brand>
+        <Navbar.Brand href="/products">Products</Navbar.Brand>
         <Button
           variant="outline-success"
         >

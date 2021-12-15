@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
+import Header from '../components/Header';
 import fetchImageProduct from '../services/fetchImageProduct';
 import fetchProduct from '../services/fetchProduct';
 
@@ -48,49 +49,52 @@ function RegisterProduct() {
   };
 
   return (
-    <Form
-      className="mx-auto"
-      style={ { width: 400 } }
-      onSubmit={ handleSubmit }
-    >
-      <Form.Control
-        type="text"
-        placeholder="Product"
-        value={ productName }
-        required
-        onChange={ (e) => setProductName(e.target.value) }
-      />
-      <br />
-      <Form.Control
-        type="text"
-        placeholder="Price"
-        name="price"
-        required
-        value={ price }
-        onChange={ (e) => handleChangeInput(e) }
-      />
-      <br />
-      <Form.Control
-        type="text"
-        placeholder="Amount"
-        name="amount"
-        required
-        value={ amount }
-        onChange={ (e) => handleChangeInput(e) }
-      />
-      <Form.Group controlId="formFile" className="mb-3">
-        <Form.Label>Default file input example</Form.Label>
+    <>
+      <Header />
+      <Form
+        className="mx-auto"
+        style={ { width: 400 } }
+        onSubmit={ handleSubmit }
+      >
         <Form.Control
-          type="file"
+          type="text"
+          placeholder="Product"
+          value={ productName }
           required
-          accept="image/jpeg, image/png, image/jpg"
-          onChange={ (e) => setCardFile(e.target.files) }
+          onChange={ (e) => setProductName(e.target.value) }
         />
-      </Form.Group>
-      <Button type="submit">
-        Submit
-      </Button>
-    </Form>
+        <br />
+        <Form.Control
+          type="text"
+          placeholder="Price"
+          name="price"
+          required
+          value={ price }
+          onChange={ (e) => handleChangeInput(e) }
+        />
+        <br />
+        <Form.Control
+          type="text"
+          placeholder="Amount"
+          name="amount"
+          required
+          value={ amount }
+          onChange={ (e) => handleChangeInput(e) }
+        />
+        <Form.Group controlId="formFile" className="mb-3">
+          <Form.Label>Default file input example</Form.Label>
+          <Form.Control
+            type="file"
+            required
+            accept="image/jpeg, image/png, image/jpg"
+            onChange={ (e) => setCardFile(e.target.files) }
+          />
+        </Form.Group>
+        <Button type="submit">
+          Submit
+        </Button>
+      </Form>
+    </>
   );
 }
 

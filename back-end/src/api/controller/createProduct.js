@@ -1,7 +1,6 @@
 const createProductService = require('../service/createProduct');
 
 module.exports = async (req, res) => {
-    console.log(req.body);
     const {
         productName,
         price,
