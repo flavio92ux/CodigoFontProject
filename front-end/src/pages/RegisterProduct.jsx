@@ -16,6 +16,7 @@ function RegisterProduct() {
     setProductName('');
     setPrice('');
     setAmount('');
+    setCardFile('');
   };
 
   const handleSubmit = async (e) => {
@@ -83,7 +84,7 @@ function RegisterProduct() {
           type="file"
           required
           accept="image/jpeg, image/png, image/jpg"
-          onChange={ (e) => setCardFile(e.target.files[0]) }
+          onChange={ (e) => setCardFile(e.target.files) }
         />
       </Form.Group>
       <Button type="submit">
