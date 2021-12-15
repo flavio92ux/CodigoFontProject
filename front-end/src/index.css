@@ -6,3 +6,11 @@
   margin: auto;
   width: 95%;
 }
+
+.menuCard:hover {
+ background-color: #d3d3d3;
+}
+
+#menuCard {
+  background-color: #d3d3d3;
+}
