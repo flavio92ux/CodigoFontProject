@@ -1,17 +1,16 @@
 const createProductService = require('../service/createProduct');
 
 module.exports = async (req, res) => {
+    console.log(req.body);
     const {
         productName,
         price,
-        stock,
-        image } = req.body;
+        amount } = req.body;
 
     const id = await createProductService({
         productName,
         price,
-        stock,
-        image });
+        amount });
 
-    res.status(201).json({ id });
+    res.status(201).json(id);
 };

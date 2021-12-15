@@ -3,6 +3,7 @@ import { Route, Routes, Navigate } from 'react-router-dom';
 import LoginPage from './pages/LoginPage';
 import Products from './pages/Products';
 import RegisterPage from './pages/RegisterPage';
+import RegisterProduct from './pages/RegisterProduct';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Route path="/login" element={ <LoginPage /> } />
       <Route path="/register" element={ <RegisterPage /> } />
       <Route path="/products" element={ <Products /> } />
+      <Route path="/registerProduct" element={ <RegisterProduct /> } />
     </Routes>
   );
 }
