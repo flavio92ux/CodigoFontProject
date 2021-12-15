@@ -1,25 +1,32 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Card, Button } from 'react-bootstrap';
 
-function ItemCard() {
+function ItemCard({ productName, price, amount, image }) {
   return (
     <Card style={ { width: '18rem' } }>
       <Card.Body>
-        <Card.Title>Product Name</Card.Title>
+        <Card.Title>{ productName }</Card.Title>
         <Card.Img
           variant="top"
-          src="http://localhost:3001/image/61b93f7b32469bfe97d5a0dc.jpeg"
+          src={ image }
         />
         <Card.Text>
-          Price
+          { price }
         </Card.Text>
         <Card.Text>
-          Stock
+          { amount }
         </Card.Text>
         <Button variant="primary">Go somewhere</Button>
       </Card.Body>
     </Card>
   );
 }
+
+ItemCard.propTypes = {
+  productName: PropTypes.string,
+  price: PropTypes.string,
+  image: PropTypes.string,
+}.isRequired;
 
 export default ItemCard;

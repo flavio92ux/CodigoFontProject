@@ -1,22 +1,35 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import ItemCard from '../components/ItemCard';
+import fetchGetAllProducts from '../services/fetchGetAllProducts';
 
 function Products() {
+  const [products, setProducts] = useState([]);
+
   const navigate = useNavigate();
+
+  useEffect(() => {
+    fetchGetAllProducts()
+      .then((data) => setProducts(data));
+  }, []);
+
+  if (products.length === 0) return 'Loading...';
 
   return (
     <>
       <Header />
       <div className="products">
-        <ItemCard />
-        <ItemCard />
-        <ItemCard />
-        <ItemCard />
-        <ItemCard />
-        <ItemCard />
+        { products.map(({ _id, productName, price, amount, image }) => (
+          <ItemCard
+            key={ _id }
+            productName={ productName }
+            price={ price }
+            amount={ amount }
+            image={ image }
+          />
+        )) }
       </div>
       <br />
       <Button
