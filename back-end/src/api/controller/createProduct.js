@@ -4,14 +4,12 @@ module.exports = async (req, res) => {
     const {
         productName,
         price,
-        amount,
         stock,
         image } = req.body;
 
     const id = await createProductService({
         productName,
         price,
-        amount,
         stock,
         image });
 

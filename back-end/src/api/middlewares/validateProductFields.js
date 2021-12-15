@@ -3,7 +3,6 @@ const Joi = require('joi');
 const schema = Joi.object({
   productName: Joi.string().required(),
   price: Joi.number().required(),
-  amount: Joi.number().integer().required(),
   stock: Joi.number().integer().required(),
   image: Joi.string().required(),
 });
