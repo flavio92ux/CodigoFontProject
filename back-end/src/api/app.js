@@ -1,5 +1,6 @@
 const express = require('express');
 const rescue = require('express-rescue');
+const cors = require('cors');
 
 const validateUser = require('./middlewares/validateUser');
 const validateProductFields = require('./middlewares/validateProductFields');
@@ -7,6 +8,12 @@ const auth = require('./middlewares/auth');
 const controller = require('./controller');
 
 const app = express();
+
+const corsOptions = {
+    origin: 'http://localhost:3000',
+  };
+  
+app.use(cors(corsOptions));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
