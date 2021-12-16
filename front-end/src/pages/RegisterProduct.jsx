@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import fetchImageProduct from '../services/fetchImageProduct';
 import fetchProduct from '../services/fetchProduct';
@@ -10,6 +11,8 @@ function RegisterProduct() {
   const [price, setPrice] = useState('');
   const [amount, setAmount] = useState('');
   const [idProduct, setIdProduct] = useState('');
+
+  const navigate = useNavigate();
 
   const token = localStorage.getItem('token');
 
@@ -38,6 +41,7 @@ function RegisterProduct() {
     if (!idProduct) return;
     const formData = new FormData();
     formData.append('image', cardFile[0]);
+    if (!token) navigate('/');
     fetchImageProduct(idProduct, formData, token);
 
     clearForm();

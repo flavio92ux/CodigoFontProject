@@ -22,6 +22,7 @@ function Products() {
 
   const handleOrder = async () => {
     const token = localStorage.getItem('token');
+    if (!token) navigate('/');
     const check = await fetchOrder(myId, token);
     setCheckout(check);
   };
