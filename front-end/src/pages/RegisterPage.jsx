@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, Container } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import fetchLogin from '../services/fetchLoginAndRegister';
 import inputsVerification from '../utils/InputsVerification';
@@ -81,13 +81,23 @@ function RegisterPage() {
         />
       </Form.Group>
 
-      <Button
-        variant="primary"
-        type="submit"
-        disabled={ disabled }
-      >
-        Register
-      </Button>
+      <Container className="containerBtn">
+        <Button
+          variant="outline-success"
+          type="submit"
+          disabled={ disabled }
+        >
+          Register
+        </Button>
+
+        <Button
+          className="button"
+          variant="outline-danger"
+          onClick={ () => navigate('/') }
+        >
+          Back
+        </Button>
+      </Container>
 
       { invalidLogin && <span>{ invalidLogin }</span> }
     </Form>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import Header from '../components/Header';
 import fetchImageProduct from '../services/fetchImageProduct';
@@ -12,6 +12,8 @@ function RegisterProduct() {
   const [idProduct, setIdProduct] = useState('');
 
   const token = localStorage.getItem('token');
+
+  const productInput = useRef(null);
 
   const clearForm = () => {
     setProductName('');
@@ -27,6 +29,10 @@ function RegisterProduct() {
     const idProd = await fetchProduct(body, token);
     setIdProduct(idProd);
   };
+
+  useEffect(() => {
+    productInput.current.focus();
+  }, []);
 
   useEffect(() => {
     if (!idProduct) return;
@@ -51,12 +57,14 @@ function RegisterProduct() {
   return (
     <>
       <Header />
+      <br />
       <Form
         className="mx-auto"
         style={ { width: 400 } }
         onSubmit={ handleSubmit }
       >
         <Form.Control
+          ref={ productInput }
           type="text"
           placeholder="Product"
           value={ productName }

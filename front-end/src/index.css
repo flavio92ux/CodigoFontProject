@@ -23,16 +23,15 @@
   bottom: 0;
 }
 
-/* .cartBtn {
-  bottom: 0;
-  padding: 10px;
-  position: fixed;
-  right: 1%;
+.containerBtn {
+  display: flex;
+  justify-content: space-around;
 }
 
-.registerBtn {
-  bottom: 0;
-  padding: 10px;
-  position: fixed;
-  left: 1%;
-} */
+.button {
+  width: 6em;
+}
+
+.loginContainer {
+  margin-top: 7%;
+}

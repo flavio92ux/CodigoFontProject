@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, Container } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import fetchLogin from '../services/fetchLoginAndRegister';
 import inputsVerification from '../utils/InputsVerification';
@@ -41,49 +41,55 @@ function LoginPage() {
   };
 
   return (
-    <Form
-      className="mx-auto"
-      style={ { width: 400 } }
-      onSubmit={ handleSubmit }
-    >
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Email address</Form.Label>
-        <Form.Control
-          ref={ emailInput }
-          type="email"
-          placeholder="Enter email"
-          value={ email }
-          onChange={ (e) => setEmail(e.target.value) }
-        />
-      </Form.Group>
-
-      <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Password</Form.Label>
-        <Form.Control
-          type="password"
-          placeholder="Password"
-          value={ password }
-          onChange={ (e) => setPassword(e.target.value) }
-        />
-      </Form.Group>
-
-      <Button
-        variant="primary"
-        type="submit"
-        disabled={ disabled }
+    <Container className="loginContainer">
+      <Form
+        className="mx-auto"
+        style={ { width: 400 } }
+        onSubmit={ handleSubmit }
       >
-        Login
-      </Button>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label>Email address</Form.Label>
+          <Form.Control
+            ref={ emailInput }
+            type="email"
+            placeholder="Enter email"
+            value={ email }
+            onChange={ (e) => setEmail(e.target.value) }
+          />
+        </Form.Group>
 
-      <Button
-        variant="primary"
-        type="button"
-        onClick={ () => navigate('/register') }
-      >
-        Register
-      </Button>
-      { invalidLogin && <span>{ invalidLogin }</span> }
-    </Form>
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Label>Password</Form.Label>
+          <Form.Control
+            type="password"
+            placeholder="Password"
+            value={ password }
+            onChange={ (e) => setPassword(e.target.value) }
+          />
+        </Form.Group>
+
+        <Container className="containerBtn">
+          <Button
+            variant="outline-success"
+            type="submit"
+            className="button"
+            disabled={ disabled }
+          >
+            Login
+          </Button>
+
+          <Button
+            variant="outline-success"
+            className="button"
+            type="button"
+            onClick={ () => navigate('/register') }
+          >
+            Register
+          </Button>
+        </Container>
+        { invalidLogin && <span>{ invalidLogin }</span> }
+      </Form>
+    </Container>
   );
 }
 

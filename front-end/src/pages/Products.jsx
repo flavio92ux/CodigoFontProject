@@ -42,6 +42,7 @@ function Products() {
         )) }
       </div>
       <br />
+      <br />
       <Navbar fixed="bottom" expand="lg" variant="light" bg="light">
         <Container>
           <Button
