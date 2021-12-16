@@ -15,9 +15,24 @@
   background-color: #bbbec7;
 }
 
-.cartBtn {
+.footer {
+  background-color: rgba(42, 163, 153, 0.342);
+  display: flex;
+  justify-content:space-between;
+  position: fixed;
+  bottom: 0;
+}
+
+/* .cartBtn {
   bottom: 0;
   padding: 10px;
   position: fixed;
-  right: 8%;
+  right: 1%;
 }
+
+.registerBtn {
+  bottom: 0;
+  padding: 10px;
+  position: fixed;
+  left: 1%;
+} */

@@ -1,5 +1,6 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
-import { Button } from 'react-bootstrap';
+import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import ItemCard from '../components/ItemCard';
@@ -25,8 +26,6 @@ function Products() {
     setCheckout(check);
   };
 
-  if (products.length === 0) return 'Loading...';
-
   return (
     <>
       <Header />
@@ -43,18 +42,21 @@ function Products() {
         )) }
       </div>
       <br />
-      <Button
-        onClick={ () => navigate('/registerProduct') }
-      >
-        Register new product
-      </Button>
-      <Button
-        className="cartBtn"
-        disabled={ !myId }
-        onClick={ handleOrder }
-      >
-        Adicionar ao carrinho
-      </Button>
+      <Navbar fixed="bottom" expand="lg" variant="light" bg="light">
+        <Container>
+          <Button
+            onClick={ () => navigate('/registerProduct') }
+          >
+            Register new product
+          </Button>
+          <Button
+            disabled={ !myId }
+            onClick={ handleOrder }
+          >
+            Checkout Product
+          </Button>
+        </Container>
+      </Navbar>
     </>
   );
 }
