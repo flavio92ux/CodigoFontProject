@@ -52,7 +52,7 @@ function Products() {
             Register new product
           </Button>
           <Button
-            disabled={ !myId }
+            disabled={ myId.length === 0 }
             onClick={ handleOrder }
           >
             Checkout Product

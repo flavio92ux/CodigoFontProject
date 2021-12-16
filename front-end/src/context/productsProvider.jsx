@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 export const productContext = React.createContext('');
 
 export const ProductProvider = ({ children }) => {
-  const [myId, setMyId] = useState();
+  const [myId, setMyId] = useState([]);
 
   const allParameters = {
     myId,

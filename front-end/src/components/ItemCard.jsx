@@ -1,16 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Card } from 'react-bootstrap';
 import { useProducts } from '../context/productsProvider';
 
 function ItemCard({ id, productName, price, amount, image }) {
   const { myId, setMyId } = useProducts();
+  const [clicked, setClicked] = useState(false);
+  const conditionFoundId = -1;
 
   const handleClick = () => {
-    if (myId === id) {
-      setMyId();
+    const currentListIds = myId;
+    const index = myId.indexOf(id);
+
+    if (index > conditionFoundId) {
+      currentListIds.splice(index, 1);
+      setClicked(false);
+      setMyId(currentListIds);
     } else {
-      setMyId(id);
+      currentListIds.push(id);
+      setClicked(true);
+      setMyId(currentListIds);
     }
   };
 
@@ -19,7 +28,7 @@ function ItemCard({ id, productName, price, amount, image }) {
       style={ { width: '18rem' } }
       className="menuCard"
       onClick={ handleClick }
-      id={ id === myId ? 'menuCard' : '' }
+      id={ clicked ? 'menuCard' : '' }
     >
       <Card.Body>
         <Card.Title>{ `Nome: ${productName}` }</Card.Title>
