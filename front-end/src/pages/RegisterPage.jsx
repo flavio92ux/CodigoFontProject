@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Form, Button, Container } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import fetchLogin from '../services/fetchLoginAndRegister';
@@ -16,15 +16,15 @@ function RegisterPage() {
   useEffect(() => {
     if (password === passwordConf) {
       setDisabled(!inputsVerification(email, password));
+    } else {
+      setDisabled(true);
     }
   }, [email, password, passwordConf]);
-
-  const emailInput = useRef(null);
 
   const clearForm = () => {
     setEmail('');
     setPassword('');
-    emailInput.current.focus();
+    setPasswordConf('');
   };
 
   const handleSubmit = async (e) => {
@@ -53,7 +53,6 @@ function RegisterPage() {
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
         <Form.Control
-          ref={ emailInput }
           type="email"
           placeholder="Enter email"
           value={ email }
@@ -72,7 +71,7 @@ function RegisterPage() {
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Password</Form.Label>
+        <Form.Label>Confirm your password</Form.Label>
         <Form.Control
           type="password"
           placeholder="Password Confirmation"
