@@ -4,7 +4,7 @@ import { Card } from 'react-bootstrap';
 import { useProducts } from '../context/productsProvider';
 
 function ItemCard({ id, productName, price, amount, image }) {
-  const { myId, setMyId } = useProducts();
+  const { myId, setMyId, setAction } = useProducts();
   const [clicked, setClicked] = useState(false);
   const conditionFoundId = -1;
 
@@ -21,6 +21,8 @@ function ItemCard({ id, productName, price, amount, image }) {
       setClicked(true);
       setMyId(currentListIds);
     }
+
+    setAction(myId.length === 0);
   };
 
   return (

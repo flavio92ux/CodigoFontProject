@@ -10,8 +10,8 @@ import fetchOrder from '../services/fetchOrder';
 
 function Products() {
   const [products, setProducts] = useState([]);
-  const { myId } = useProducts();
   const [checkout, setCheckout] = useState();
+  const { myId, action } = useProducts();
 
   const navigate = useNavigate();
 
@@ -52,7 +52,7 @@ function Products() {
             Register new product
           </Button>
           <Button
-            disabled={ myId.length === 0 }
+            disabled={ action }
             onClick={ handleOrder }
           >
             Checkout Product

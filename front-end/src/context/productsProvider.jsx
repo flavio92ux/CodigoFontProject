@@ -5,10 +5,13 @@ export const productContext = React.createContext('');
 
 export const ProductProvider = ({ children }) => {
   const [myId, setMyId] = useState([]);
+  const [action, setAction] = useState(true);
 
   const allParameters = {
     myId,
     setMyId,
+    action,
+    setAction,
   };
 
   return (
