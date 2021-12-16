@@ -18,13 +18,6 @@ function RegisterProduct() {
 
   const productInput = useRef(null);
 
-  const clearForm = () => {
-    setProductName('');
-    setPrice('');
-    setAmount('');
-    setCardFile('');
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     const body = { productName, price, amount };
@@ -44,8 +37,8 @@ function RegisterProduct() {
     if (!token) navigate('/');
     fetchImageProduct(idProduct, formData, token);
 
-    clearForm();
-  }, [cardFile, idProduct, token]);
+    window.location.reload();
+  }, [cardFile, idProduct, navigate, token]);
 
   const handleChangeInput = ({ target }) => {
     const { name, value } = target;

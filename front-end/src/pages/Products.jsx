@@ -1,6 +1,5 @@
-/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
-import { Button, Container, Nav, Navbar } from 'react-bootstrap';
+import { Button, Container, Navbar } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import ItemCard from '../components/ItemCard';
@@ -11,7 +10,7 @@ import fetchOrder from '../services/fetchOrder';
 function Products() {
   const [products, setProducts] = useState([]);
   const [checkout, setCheckout] = useState();
-  const { myId, action } = useProducts();
+  const { myId, setMyId, action } = useProducts();
 
   const navigate = useNavigate();
 
@@ -19,6 +18,22 @@ function Products() {
     fetchGetAllProducts()
       .then((data) => setProducts(data));
   }, [checkout]);
+
+  useEffect(() => {
+    const magicNumber = -1;
+    const arrayProducts = [];
+    products.forEach(({ _id }) => arrayProducts.push(_id));
+
+    const auxMyId = myId;
+
+    auxMyId.forEach((id, index) => {
+      if (arrayProducts.indexOf(id) === magicNumber) {
+        auxMyId.splice(index);
+      }
+    });
+
+    setMyId(auxMyId);
+  }, [products]);
 
   const handleOrder = () => {
     const token = localStorage.getItem('token');
