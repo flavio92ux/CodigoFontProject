@@ -8,7 +8,7 @@ function ItemCard({ id, productName, price, amount, image }) {
 
   const handleClick = () => {
     if (myId === id) {
-      setMyId('');
+      setMyId();
     } else {
       setMyId(id);
     }

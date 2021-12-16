@@ -12,5 +12,12 @@
 }
 
 #menuCard {
-  background-color: #d3d3d3;
+  background-color: #bbbec7;
+}
+
+.cartBtn {
+  bottom: 0;
+  padding: 10px;
+  position: fixed;
+  right: 8%;
 }
