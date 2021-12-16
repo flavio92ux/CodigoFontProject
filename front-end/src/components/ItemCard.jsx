@@ -1,12 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Card } from 'react-bootstrap';
+import { useProducts } from '../context/productsProvider';
 
-function ItemCard({ productName, price, amount, image }) {
-  const [click, setClick] = useState(false);
+function ItemCard({ id, productName, price, amount, image }) {
+  const { myId, setMyId } = useProducts();
 
   const handleClick = () => {
-    setClick(!click);
+    if (myId === id) {
+      setMyId('');
+    } else {
+      setMyId(id);
+    }
   };
 
   return (
@@ -14,7 +19,7 @@ function ItemCard({ productName, price, amount, image }) {
       style={ { width: '18rem' } }
       className="menuCard"
       onClick={ handleClick }
-      id={ click && 'menuCard' }
+      id={ id === myId ? 'menuCard' : '' }
     >
       <Card.Body>
         <Card.Title>{ `Nome: ${productName}` }</Card.Title>

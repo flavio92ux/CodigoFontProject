@@ -23,6 +23,7 @@ function Products() {
       <div className="products">
         { products.map(({ _id, productName, price, amount, image }) => (
           <ItemCard
+            id={ _id }
             key={ _id }
             productName={ productName }
             price={ price }
