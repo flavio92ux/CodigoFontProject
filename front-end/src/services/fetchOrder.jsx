@@ -1,6 +1,6 @@
 import endpoint from './enpointBackEnd';
 
-export default function fetchOrder(id, token) {
+export default function fetchOrder(listId, token) {
   const requestOptions = {
     method: 'PATCH',
     headers: {
@@ -9,7 +9,11 @@ export default function fetchOrder(id, token) {
     },
   };
 
-  return fetch(`${endpoint}/product/${id}`, requestOptions)
-    .then((res) => res.json())
-    .catch((err) => console.log(err));
+  const response = listId.map((id) => (
+    fetch(`${endpoint}/product/${id}`, requestOptions)
+      .then((res) => res.json())
+      .catch((err) => console.log(err))
+  ));
+
+  return response;
 }

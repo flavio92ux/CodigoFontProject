@@ -20,11 +20,10 @@ function Products() {
       .then((data) => setProducts(data));
   }, [checkout]);
 
-  const handleOrder = async () => {
+  const handleOrder = () => {
     const token = localStorage.getItem('token');
     if (!token) navigate('/');
-    const check = await fetchOrder(myId, token);
-    setCheckout(check);
+    Promise.all(fetchOrder(myId, token)).then((data) => setCheckout(data));
   };
 
   return (
