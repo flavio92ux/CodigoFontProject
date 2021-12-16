@@ -34,8 +34,8 @@ const productDoesNotExist = {
 };
   
 const invalidPassword = {
-status: 400,
-message: 'Password Incorrect',
+    status: 400,
+    message: 'Password Incorrect',
 };
 
 module.exports = {

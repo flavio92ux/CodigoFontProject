@@ -21,7 +21,7 @@ app.use(express.urlencoded({ extended: true }));
 const upload = require('./middlewares/multer');
 
 app.post('/login', validateUser, rescue(controller.login));
-app.post('/register', rescue(controller.createUser));
+app.post('/register', validateUser, rescue(controller.createUser));
 
 app.get('/products', controller.getAllProducts);
 
