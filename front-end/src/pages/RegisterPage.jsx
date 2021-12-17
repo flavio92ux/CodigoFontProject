@@ -53,6 +53,7 @@ function RegisterPage() {
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
         <Form.Control
+          data-testid="email-register"
           type="email"
           placeholder="Enter email"
           value={ email }
@@ -63,6 +64,7 @@ function RegisterPage() {
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Password</Form.Label>
         <Form.Control
+          data-testid="password-register"
           type="password"
           placeholder="Password"
           value={ password }
@@ -73,6 +75,7 @@ function RegisterPage() {
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Confirm your password</Form.Label>
         <Form.Control
+          data-testid="confirm-password-register"
           type="password"
           placeholder="Password Confirmation"
           value={ passwordConf }
