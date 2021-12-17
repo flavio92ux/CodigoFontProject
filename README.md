@@ -4,7 +4,7 @@
 <h4>1) Instalação automatica: (Unix)</h4>
   <li>Abra o terminal na raiz do projeto.</li>
   <li>execute o comando "chmod +x INSTALAR.sh"</li>
-  <li>execute o comando "./INSTALAR.sh")</li>
+  <li>execute o comando "./INSTALAR.sh"</li>
 
 <h4>OU</h4>
 
