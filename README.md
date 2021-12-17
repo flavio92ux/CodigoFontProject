@@ -1,12 +1,13 @@
 INSTRUÇÕES:
+<br>
 
-1)Instalação automatica:
-  -Abra o terminal na raiz do projeto.
-  -execute o comando "chmod +x INSTALAR.sh" (sem aspas)
-  -execute o comando "./INSTALAR.sh" (sem aspas)
-
+<ul>1)Instalação automatica: (Unix)</ul>
+  <li>Abra o terminal na raiz do projeto.</li>
+  <li>execute o comando "chmod +x INSTALAR.sh" (sem aspas)</li>
+  <li>execute o comando "./INSTALAR.sh" (sem aspas)</li>
+<br>
 OU
-
-2)Instalacao manual
-  -execute o terminal dentre da pasta back-end e rode o comando "npm install && npm start"
-  -execute o terminal dentre da pasta back-end e rode o comando "npm install && npm start"
+<br>
+<ul>2)Instalacao manual</ul>
+  <li>execute o terminal dentre da pasta back-end e rode o comando "npm install && npm start"</li>
+  <li>execute o terminal dentre da pasta back-end e rode o comando "npm install && npm start"</li>
