@@ -7,6 +7,8 @@ const validateProductFields = require('./middlewares/validateProductFields');
 const auth = require('./middlewares/auth');
 const controller = require('./controller');
 
+require('dotenv').config();
+
 const app = express();
 
 const corsOptions = {
