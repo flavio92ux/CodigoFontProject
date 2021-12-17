@@ -8,6 +8,6 @@
 
 <h4>OU</h4>
 
-<h4>2) Instalacao manual</h4>
+<h4>2) Instalação manual</h4>
   <li>execute o terminal dentre da pasta back-end e rode o comando "npm install && npm start"</li>
   <li>execute o terminal dentre da pasta back-end e rode o comando "npm install && npm start"</li>
