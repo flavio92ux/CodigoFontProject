@@ -22,8 +22,6 @@ describe('Teste da tela de registro de usuarios', () => {
   it('Verifica se  o preenchimento dos inputs habilita o botar de register.', () => {
     const { getByRole } = renderWithRouter(<RegisterPage />);
     const btnRegister = getByRole('button', { name: 'Register' });
-    /* const email = getByTestId('email-register') */
-    /* expect(btnRegister).toBeDisabled(); */
   });
 
 

@@ -35,9 +35,8 @@ function RegisterProduct() {
     const formData = new FormData();
     formData.append('image', cardFile[0]);
     if (!token) navigate('/');
-    fetchImageProduct(idProduct, formData, token);
-
-    window.location.reload();
+    fetchImageProduct(idProduct, formData, token)
+      .then(() => window.location.reload());
   }, [cardFile, idProduct, navigate, token]);
 
   const handleChangeInput = ({ target }) => {
