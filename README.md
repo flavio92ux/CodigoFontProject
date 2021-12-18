@@ -1,6 +1,6 @@
 <h2>INSTRUÇÕES:</h2>
 
-Requisitos: Node na versao 13 ou superior.
+Requisitos: Node na versao 14 ou superior, mongodb.
 
 <br>
 

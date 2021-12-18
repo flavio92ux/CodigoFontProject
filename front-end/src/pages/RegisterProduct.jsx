@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 import React, { useEffect, useRef, useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
@@ -18,8 +19,17 @@ function RegisterProduct() {
 
   const productInput = useRef(null);
 
+  const checkPriceAndAmount = () => (
+    (Number(price) > 0 && Number(amount) > 0)
+  );
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!checkPriceAndAmount()) {
+      alert('Price or quantity cannot be null');
+      return;
+    }
+
     const body = { productName, price, amount };
 
     const idProd = await fetchProduct(body, token);
@@ -42,7 +52,7 @@ function RegisterProduct() {
   const handleChangeInput = ({ target }) => {
     const { name, value } = target;
 
-    const regex = /^\d*[1-9]\d*$/;
+    const regex = /^\d*[0-9]\d*$/;
 
     if (!regex.test(Number(value))) return;
 
@@ -79,7 +89,7 @@ function RegisterProduct() {
         <br />
         <Form.Control
           type="text"
-          placeholder="Amount"
+          placeholder="Quantity"
           name="amount"
           required
           value={ amount }

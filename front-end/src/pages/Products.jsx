@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 import { Button, Container, Navbar } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';

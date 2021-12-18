@@ -1,12 +1,12 @@
-FROM node:14-alpine AS build
+FROM node:12.18.1
+ENV NODE_ENV=production
 
-WORKDIR /api
-COPY package*.json ./
+WORKDIR /back-end
+
+COPY ["package.json", "package-lock.json*", "./"]
+
 RUN npm install
-COPY . .
-RUN npm run build
 
-FROM nginx:1.16.0-alpine AS prod
-COPY --from=build /app/build /usr/share/nginx/html
-EXPOSE 3001
-ENTRYPOINT ["nginx", "-g", "daemon off;"]
+COPY . .
+
+CMD [ "npm", "start" ]

@@ -1,5 +1,5 @@
-FROM mhart/alpine-node:8.11.4
-WORKDIR /client
+FROM mhart/alpine-node:16.4.2
+WORKDIR /front-end
 COPY package*.json /client/
 RUN npm install
 COPY . /client/
