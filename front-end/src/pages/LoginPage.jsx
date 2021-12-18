@@ -6,8 +6,8 @@ import inputsVerification from '../utils/InputsVerification';
 
 function LoginPage() {
   const [disabled, setDisabled] = useState(true);
-  const [email, setEmail] = useState('flavio_php@hotmain.com');
-  const [password, setPassword] = useState('12345678');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [invalidLogin, setInvalidLogin] = useState(false);
 
   const navigate = useNavigate();
