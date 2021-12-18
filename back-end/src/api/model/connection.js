@@ -1,6 +1,6 @@
 const { MongoClient } = require('mongodb');
 
-const MONGODB_URL = process.env.MONGODB_URL || 'mongodb://mongodb:27017/CodigoFontChallenge';
+const MONGODB_URL = process.env.MONGODB_URL || 'mongodb://mongodb:27017';
 const DB_NAME = 'CodigoFontChallenge';
 
 const getConnection = () => MongoClient
