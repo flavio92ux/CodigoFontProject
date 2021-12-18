@@ -1,5 +1,5 @@
 FROM mhart/alpine-node:16.4.2
-WORKDIR /client
+WORKDIR /front-end
 COPY package*.json /client/
 RUN npm install
 COPY . /client/
