@@ -10,7 +10,9 @@ services:
 
     # the port that we want to publish for mongodb
     ports:
-      - "27017:27017"
+      - "27018:27017"
+      
+    restart: always
 
     # our mongodb depends on volume to keep the data alive.
     volumes:
@@ -40,7 +42,7 @@ services:
       - "3000:3000"
     # add bind mount volume to keep have updated source code
     volumes:
-      - ./front-end/src:/app/src
+      - ./front-end/src:/front-end/src
     # allow interactive mode
     stdin_open: true
     tty: true
