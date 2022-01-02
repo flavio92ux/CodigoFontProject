@@ -1,7 +1,10 @@
-FROM node:14-alpine AS build
+FROM node:12.18.1
+ENV NODE_ENV=production
 
-WORKDIR /api
-COPY package*.json .
+WORKDIR /back-end
+
+COPY ["package.json", "package-lock.json*", "./"]
+
 RUN npm install
-COPY . .
-RUN npm start
+
+CMD [ "npm", "start" ]
