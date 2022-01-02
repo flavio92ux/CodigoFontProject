@@ -1,4 +1,7 @@
 <h2>INSTRUÇÕES:</h2>
+
+Requisitos: Node na versao 13 ou superior.
+
 <br>
 
 <h4>1) Instalação automatica: (Unix)</h4>
