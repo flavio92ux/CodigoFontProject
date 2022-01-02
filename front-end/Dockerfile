@@ -1,7 +1,7 @@
 FROM mhart/alpine-node:8.11.4
 WORKDIR /client
-COPY package*.json /client/
+COPY package*.json .
 RUN npm install
-COPY . /client/
+COPY . .
 EXPOSE 3000
 CMD ["npm", "start"]
