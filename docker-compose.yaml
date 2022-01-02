@@ -42,6 +42,7 @@ services:
       - "3000:3000"
     # add bind mount volume to keep have updated source code
     volumes:
+      - ./front-end/src:/client/src
       - ./front-end/src:/front-end/src
     # allow interactive mode
     stdin_open: true
@@ -52,5 +53,5 @@ services:
       - backend
 
 # declare the volumes name that our app is using.
-volumes:
-  data:
+#volumes:
+#  data:
