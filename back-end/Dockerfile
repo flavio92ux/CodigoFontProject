@@ -1,10 +1,7 @@
-FROM node:12.18.1
-ENV NODE_ENV=production
+FROM node:16-alpine
 
 WORKDIR /back-end
-
-COPY ["package.json", "package-lock.json*", "./"]
-
+COPY package.json .
 RUN npm install
-
-CMD [ "npm", "start" ]
+COPY . .
+CMD npm start
