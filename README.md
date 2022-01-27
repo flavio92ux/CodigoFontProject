@@ -1,5 +1,7 @@
 <h2>INSTRUÇÕES:</h2>
 
+Projeto Full Stack que permite a introdução de um catálogo de games em um site. Design feito 100% responsivo e compatível com o sistema mobile first
+
 Requisitos: Node na versao 14 ou superior, mongodb.
 
 <br>
